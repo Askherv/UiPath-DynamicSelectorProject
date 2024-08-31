@@ -104,9 +104,9 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="812.8,3634.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="dt_CourseName" />
-      <Variable x:TypeArguments="x:String" Name="dt_Level" />
-      <Variable x:TypeArguments="scg:List(x:String)" Name="dt_CourseList" />
+      <Variable x:TypeArguments="x:String" Name="CourseName" />
+      <Variable x:TypeArguments="x:String" Name="Level" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="CourseList" />
       <Variable x:TypeArguments="x:Int32" Name="count" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -117,12 +117,12 @@
     <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="750.4,166.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome" />
     <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="750.4,273.6" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Aramak istediğiniz kursun adını giriniz: " Title="Kurs seçimi ">
       <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[dt_CourseName]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[CourseName]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="750.4,273.6" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Seviyenizi seçiniz: Yeni Başlayan-Orta-Uzman" Title="Seviye Seçimi">
       <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[dt_Level]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[Level]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="750.4,2832" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.udemy.com/">
@@ -151,7 +151,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="529.6,56.8" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  u300-search-form...'" sap:VirtualizedContainerService.HintSize="529.6,188" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[dt_CourseName + &quot;[k(enter)]&quot;]">
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  u300-search-form...'" sap:VirtualizedContainerService.HintSize="529.6,188" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[CourseName + &quot;[k(enter)]&quot;]">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="924ab4ef-6b97-4605-a7db-af27492be938" InformativeScreenshot="18f73a8a8b1a41967c3759eb4bbed302" Selector="&lt;html app='chrome.exe' title='Online Kurslar - Programınıza Uygun Şekilde Her Şeyi Öğrenin | Udemy' /&gt;&lt;webctrl tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
@@ -179,7 +179,7 @@
                     </ui:Target>
                   </ui:Click.Target>
                 </ui:Click>
-                <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[dt_Level]" sap:VirtualizedContainerService.HintSize="529.6,219.2" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Level]" sap:VirtualizedContainerService.HintSize="529.6,219.2" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -269,7 +269,7 @@
                 </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="scg:List(x:String)">[dt_CourseList]</OutArgument>
+                    <OutArgument x:TypeArguments="scg:List(x:String)">[CourseList]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
                     <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
@@ -327,7 +327,7 @@
                           <InArgument x:TypeArguments="x:String">[GetTextCourse]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[dt_CourseList]" DisplayName="Append Items to Collection" sap:VirtualizedContainerService.HintSize="433.6,173.6" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_1">
+                      <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[CourseList]" DisplayName="Append Items to Collection" sap:VirtualizedContainerService.HintSize="433.6,173.6" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_1">
                         <uasc:AppendItemToCollection.Items>
                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                             <InArgument x:TypeArguments="x:String">[CoursePrice]</InArgument>
@@ -352,7 +352,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InterruptibleDoWhile>
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="529.6,384" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dt_CourseList]">
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="529.6,384" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[CourseList]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>

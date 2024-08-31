@@ -12,9 +12,9 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dt_CourseName&Sequence_1",
-        "dt_Level&Sequence_1",
-        "dt_CourseList&Sequence_1",
+        "CourseList&Sequence_1",
+        "Level&Sequence_1",
+        "CourseName&Sequence_1",
         "count&Sequence_1",
         "Courses&Sequence_3",
         "Prices&Sequence_3",
